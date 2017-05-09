@@ -25,5 +25,5 @@
 
     - name: Print report
       template:
-        src: version_report.j2
+        src: templates/version_report.j2
         dest: ./version_report-{{ inventory_hostname }}.txt
