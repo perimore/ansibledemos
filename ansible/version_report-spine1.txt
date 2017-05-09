@@ -1,0 +1,3 @@
+Hostname: spine1
+Model: vEOS
+Software Version: 2017.2.0-eft-4653423.201720eft
