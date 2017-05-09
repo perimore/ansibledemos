@@ -1,0 +1,13 @@
+vlans:
+  - vlanid: 2
+    name: production
+  - vlanid: 3
+    name: non-production
+
+interfaces:
+  - name: Loopback1
+    description: 'Lo1-Test'
+    address: 10.1.1.1/32
+  - name: Loopback2
+    description: 'Lo2-Test'
+    address: 10.1.1.2/32

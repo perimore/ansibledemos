@@ -7,23 +7,21 @@
     model_name: '{{ version_data.stdout[0].modelName }}'
     eos_version: '{{ version_data.stdout[0].internalVersion }}'
 
-    eapi_conn:
-      host: '{{ inventory_hostname }}'
-      username: admin
-      password: 
-      transport: eapi
-      use_ssl: true
-      validate_certs: false
   tasks:
-    - name: Get version
+    - name: Get Version
       eos_command:
         commands='show version'
-        provider={{ eapi_conn }}
+        provider={{ eos_connection }}
       register: version_data
 
     - debug: msg='{{ version_data }}'
 
     - name: Print report
       template:
-        src: templates/version_report.j2
+        src: version_report.j2
         dest: ./version_report-{{ inventory_hostname }}.txt
+
+    - name: Configure vlans
+      eos_config:
+        src: vlans.j2
+        provider: "{{ eos_connection }}"
