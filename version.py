@@ -37,3 +37,4 @@ print template.render(host=host,
                       model=version_info['modelName'],
                       version=version_info['version']
                       )
+print "\n----- END -----\n"
